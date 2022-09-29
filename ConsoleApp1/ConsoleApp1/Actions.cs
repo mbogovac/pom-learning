@@ -1,5 +1,5 @@
-﻿
-using ConsoleApp1.UIElements;
+﻿using ConsoleApp1.UIElements;
+using OpenQA.Selenium.Chrome;
 
 namespace ConsoleApp1
 {
@@ -7,6 +7,7 @@ namespace ConsoleApp1
     {
         public static void InitializeDriver()
         {
+            Driver.driver = new ChromeDriver();
             Driver.driver.Navigate().GoToUrl(Config.BaseUrl);
         }
 
@@ -14,8 +15,11 @@ namespace ConsoleApp1
         {
             LoginForm loginForm = new LoginForm();
 
+            loginForm.UsernameField.Clear();
             loginForm.UsernameField.SendKeys(username);
+            loginForm.PasswordField.Clear();
             loginForm.PasswordField.SendKeys(password);
+            loginForm.RepeatPassField.Clear();
             loginForm.RepeatPassField.SendKeys(repeatPassword);
             loginForm.LoginButton.Click();
         }
