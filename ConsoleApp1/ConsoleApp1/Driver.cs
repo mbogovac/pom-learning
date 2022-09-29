@@ -6,6 +6,6 @@ namespace ConsoleApp1
 {
     public static class Driver
     {
-        public static IWebDriver driver = new ChromeDriver();
+        public static IWebDriver driver { get; set; }
     }
 }
